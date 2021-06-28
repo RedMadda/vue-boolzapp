@@ -1,5 +1,90 @@
+/* formattone ok cubotti colorati */
 *, *:before, *:after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
+
+
+
+
+/* DEBUG */
+
+/* .border{
+    border: 1 px solid red:
+} */
+
+.yellow{
+    background-color: yellow;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.red{
+    background-color: red;
+}
+
+.pink{
+    background-color: pink;
+}
+
+.green{
+    background-color: green;;
+}
+/* / debug */
+
+
+#gen-container{
+    display:flex;
+}
+
+/* REUSABLE */
+
+.header{
+    height: 70px;
+    border: 1px solid black;
+    background-color: bisque;
+}
+
+#profiles,
+#chat-reading{
+    overflow-y: scroll;
+}
+
+/* CONTACTS left-side*/
+
+#contacts{
+    width: 30%;
+}
+
+#notice{
+    width:100%;
+    height: 80px;
+    background-color: lightskyblue;
+}
+
+#contacts-search{
+    height: 40px;
+}
+
+#profiles{
+    width:100%;
+    height: calc(100vh - 190px);
+}
+
+/* CHAT right side */
+
+
+#contact-chat{
+    width: 70%;
+}
+
+#chat-reading{
+    height: calc(100% - 70px*2);
+}
+
+#chat-writing{
+    height: 70px;
+}
