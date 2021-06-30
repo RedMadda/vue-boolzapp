@@ -34,7 +34,7 @@
                 <div id="contacts-header" class="header">
                     
                     <div class="photo-holder">
-                    <img src="img/girl4.webp" alt="Profilo User"> Caterina Franceschetti
+                    <img src="https://cdn.pixabay.com/photo/2015/09/02/13/24/girl-919048__340.jpg" alt="Profilo User"> Caterina Franceschetti
                     </div>
 
                     <div id="contacts-nav">
@@ -81,12 +81,13 @@
 
                     <!-- profile -->
                     <section id="profiles">
-                        <!-- <ul>
-                            <li v-for="person in contacts" v-bind:key="person.name">
-                                <img :src="photo" alt="profile picture" />
-                                <p>{{name}}</p>
+                    
+                        <ul>
+                            <li v-for="(contact,index) in contacts" @click="activingContact(index)">
+                                <img v-bind:src="contact.photo" alt="contact.name">
+                                <span>{{contact.name}}</span>
                             </li>
-                        </ul> -->
+                        </ul>
                     </section>
                     <!-- /profile -->
 
@@ -103,18 +104,18 @@
                 <div id="chat-header" class="header">
                     <!-- visible profile -->
                     <div id="chatHeader-profVis" class="flex">
-
-                        <div class="photo-holder">
-                            <img src="img/laura.webp" alt="Photo user">
+    
+                            <div class="photo-holder">
+                                <img :src="contacts[contactVisible].photo" alt="contacts[contactVisible].name">
+                            </div>
+    
+                            <!-- text -->
+                            <div id="contChat-text">
+                                <p> {{contacts[contactVisible].name}}</p>
+                                <p id="last" class="text-grey"> Ultimo accesso oggi alle </p>
+                            </div>
                         </div>
-
-                        <!-- text -->
-                        <div id="contChat-text">
-                            <p> Laura Godwill</p>
-                            <p id="last" class="text-grey"> Ultimo accesso oggi alle </p>
-                        </div>
-
-                    </div>
+                        
                     <!-- /prof-vis -->
 
                     <!-- nav -->
@@ -129,7 +130,15 @@
                 <!--/ mess-header -->
 
                 <!-- reading space -->
-                <section id="chat-reading"></section>
+                <section id="chat-reading">
+
+                    <div id="text-box" v-for="mess in contacts[contactVisible].messages" :class="mess.status">
+                        <p>{{mess.date}}</p>
+                        <p>{{mess.text}}</p>
+                    </div>
+
+                    
+                </section>
                 <!-- /reading space -->
 
                 <!-- chat-writing -->
@@ -159,5 +168,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
     <script src="js/script.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
 </body>
 </html>

@@ -42,6 +42,11 @@ html{
     color: rgb(20, 116, 116);
 }
 
+* i{
+    font-size: 22px;
+    color: rgb(20, 116, 116);
+}
+
 * ul{
     list-style: none;
 }
@@ -81,7 +86,7 @@ html{
 /* CONTACTS left-side*/
 
 #contacts{
-    width: 40%;
+    width: 400px;
 }
 
 #contacts-header{
@@ -164,15 +169,20 @@ input#input-search{
 
 #profiles li{
     height: 75px;
-    border-top: 1px solid grey;
     border-bottom: 1px solid grey;
+    display:flex;
+    align-items: center;
+    padding-left: 10px;
 }
 
+#profiles li:hover{
+    cursor: pointer;
+}
 /* CHAT right side */
 
 
 #contact-chat{
-    width: 60%;
+    width: 65%;
     height: 95vh;
     justify-content: space-between;
     flex-direction: column;
@@ -201,19 +211,27 @@ input#input-search{
     height: calc(95vh - 75px - 80px);
     z-index:-3;
     display:block;
-    position: relative;    
+    position: relative;
+    padding: 30px;    
+    /* background-image: url("https://cdn.pixabay.com/photo/2013/04/14/20/24/water-103817__340.jpg");
+    background-size: cover; */
+} 
+
+.sent{
+    padding:20px;
+    background-color: rgb(66, 231, 80);
+    border-radius: 5px;
+    float: right;
+    clear: both;
+    
 }
 
-#contact-chat > #chat-reading::after {
-    content: "";
-    background-image: url("../img/bcc.jpg");
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -3;   
+.received{
+    background-color: white;
+    padding:20px;
+    border-radius: 5px;
+    float: left;
+    clear: both;
 }
 
 
