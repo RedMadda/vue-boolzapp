@@ -83,7 +83,7 @@
                     <section id="profiles">
                     
                         <ul>
-                            <li v-for="(contact,index) in contacts"   @click="activingContact(index)">
+                            <li v-for="(contact,index) in contacts"   @click="activingContact(index)" v-if="(researchOk) ? ">
                                 <img v-bind:src="contact.photo" alt="contact.name">
                                 <span>{{contact.name}}</span>
                             </li>
