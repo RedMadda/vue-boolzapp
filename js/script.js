@@ -3,11 +3,13 @@ const boolzApp = new Vue({
     data:{
         contactVisible: 0,
         mesSent: "",
+        search: "",
         contacts: [
             {
                 name: "Beatrice Rovazzi",
                 photo: "https://cdn.pixabay.com/photo/2016/11/22/06/05/girl-1848454__340.jpg",
                 visible: true,
+                researchOk: true,
                 messages: [
                     {
                         date: "29/06/2021",
@@ -15,9 +17,9 @@ const boolzApp = new Vue({
                         status: "received"
                     },
                     {
-                    date: "29/06/2021",
-                     text: "Volentieri! C'è posto all'aperto?",
-                     status: "sent"
+                        date: "29/06/2021",
+                        text: "Volentieri! C'è posto all'aperto?",
+                        status: "sent"
                     },
                     {   date: "29/06/2021",
                         text: "Sì",
@@ -29,6 +31,7 @@ const boolzApp = new Vue({
                 name: "Zio Tobia",
                 photo: "https://cdn.pixabay.com/photo/2017/04/01/21/06/portrait-2194457__340.jpg",
                 visible: false,
+                researchOk:  true,
                 messages: [
                     {
                         date: "01/07/2021",
@@ -50,6 +53,7 @@ const boolzApp = new Vue({
                 name: "Maurizio Corona",
                 photo: "https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__340.jpg",
                 visible: false,
+                researchOk:  true,
                 messages: [
                     {
                         date: "31/06/2021",
@@ -72,6 +76,7 @@ const boolzApp = new Vue({
                 name: "Margherita Rezzi",
                 photo: "https://cdn.pixabay.com/photo/2018/01/06/09/25/hijab-3064633__340.jpg",
                 visible: false,
+                researchOk:  true,
                 messages: [
                     {
                         date: "22/08/2021",
@@ -113,7 +118,7 @@ const boolzApp = new Vue({
              };
             
              this.contacts[this.contactVisible].messages.push(newMess);
-            
+             this.mesSent = " ";
             
 
             setTimeout(() => {
@@ -128,16 +133,15 @@ const boolzApp = new Vue({
 
             }, 1000);
 
-            mesSent = "";
+           
         },
-        // scrollToElement() {
-        //     const el = this.$mesSent.scrollToMe;
         
-        //     if (el) {
-        //       // Use el.scrollIntoView() to instantly scroll to the element
-        //       el.scrollIntoView({behavior: 'smooth'});
-        //     }
-        //   },
-        
+        lookInContacts(){
+            this.contacts.forEach((el) => {el.researchOk = el.name.toLowerCase().includes(this.search.toLowerCase())
+            if(el.researchOk){
+                
+            };})
+            console.log(this.search);
+        }
     }
 })
