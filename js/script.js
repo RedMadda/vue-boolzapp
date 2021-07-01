@@ -138,7 +138,8 @@ const boolzApp = new Vue({
         
         lookInContacts(){
             this.contacts.forEach((el) => {el.researchOk = el.name.toLowerCase().includes(this.search.toLowerCase());
-            console.log(el.researchOk);})
+            console.log(el.researchOk) ;})
+            
             console.log(this.search);
         }
     }

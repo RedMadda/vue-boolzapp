@@ -178,6 +178,10 @@ input#input-search{
 #profiles li:hover{
     cursor: pointer;
 }
+
+.not-visible{
+    display: none;
+}
 /* CHAT right side */
 
 
