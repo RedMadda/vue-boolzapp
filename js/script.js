@@ -102,39 +102,42 @@ const boolzApp = new Vue({
             this.contacts[index].visible = true;
             // console.log(this.contacts[index].visible);
         },
+        
 
-        addMess(){
-            let light = "green";
-            for(el in this.contacts){
-                if(el == this.contactVisible && this.mesSent != "" && light == "green"){
+        addMes(){
+           
+             const newMess = {
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                text: this.mesSent,
+                status: "sent"
+             };
+            
+             this.contacts[this.contactVisible].messages.push(newMess);
+            
+            
 
-                    // invio mess
-                    let newDate = dayjs().format('DD/MM/YYYY HH:mm:ss');
+            setTimeout(() => {
 
-                    let sendMes = {
-                        date: newDate,
-                        text: this.mesSent,
-                        status: 'sent',
-                    }
-
-                    this.contacts[el].messages.push(sendMes);
-                    this.mesSent = " ";
-
-                    // risposta
-
-                    setTimeout( 
-                        () => {
-                            let newReceived = {
-                                date: dayjs().format('DD/MMYYYY HH:mm:ss'),
-                                text: "Ok!",
-                                status: "received"
-                            }
-                            this.contacts[el].messages.push(newReceived);
-                            console.log("setCheck");
-                        }, 1000)
+                const mesBot = {
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    text: "ok",
+                    status: 'received'
                 }
-            }
-        }
+
+                this.contacts[this.contactVisible].messages.push(mesBot);
+
+            }, 1000);
+
+            mesSent = "";
+        },
+        // scrollToElement() {
+        //     const el = this.$mesSent.scrollToMe;
+        
+        //     if (el) {
+        //       // Use el.scrollIntoView() to instantly scroll to the element
+        //       el.scrollIntoView({behavior: 'smooth'});
+        //     }
+        //   },
         
     }
 })
