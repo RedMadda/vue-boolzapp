@@ -88,7 +88,7 @@
                                     <span>{{contact.name}}</span>
                                 </li> -->
 
-                                <li id="profile" v-for="(contact,index) in contacts"  @click="activingContact(index)" v-if="(lookInContacts) ? contacts.visible = true : contacts.visible = false">
+                                <li id="profile" v-for="(contact,index) in contacts"  @click="activingContact(index)" v-bind:class="{'not-visible' : contacts.researchOk == false }">
                                     <img v-bind:src="contact.photo" alt="contact.name">
                                     <span>{{contact.name}}</span>
                                 </li>
