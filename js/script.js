@@ -10,6 +10,7 @@ const boolzApp = new Vue({
                 photo: "https://cdn.pixabay.com/photo/2016/11/22/06/05/girl-1848454__340.jpg",
                 visible: true,
                 researchOk: false,
+                profileVis: false,
                 messages: [
                     {
                         date: "29/06/2021",
@@ -32,6 +33,7 @@ const boolzApp = new Vue({
                 photo: "https://cdn.pixabay.com/photo/2017/04/01/21/06/portrait-2194457__340.jpg",
                 visible: false,
                 researchOk:  false,
+                profileVis: false,
                 messages: [
                     {
                         date: "01/07/2021",
@@ -54,6 +56,7 @@ const boolzApp = new Vue({
                 photo: "https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__340.jpg",
                 visible: false,
                 researchOk:  false,
+                profileVis: false,
                 messages: [
                     {
                         date: "31/06/2021",
@@ -77,6 +80,7 @@ const boolzApp = new Vue({
                 photo: "https://cdn.pixabay.com/photo/2018/01/06/09/25/hijab-3064633__340.jpg",
                 visible: false,
                 researchOk:  false,
+                profileVis: false,
                 messages: [
                     {
                         date: "22/08/2021",
@@ -137,10 +141,10 @@ const boolzApp = new Vue({
         },
         
         lookInContacts(){
-            this.contacts.forEach((el) => {el.researchOk = el.name.toLowerCase().includes(this.search.toLowerCase());
-            console.log(el.researchOk) ;})
+            this.contacts.forEach((el) => {el.researchOk = el.name.toLowerCase().includes(this.search.toLowerCase());return el.researchOk})
             
             console.log(this.search);
         }
+        
     }
 })
